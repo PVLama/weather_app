@@ -63,7 +63,7 @@ class ComfortLevel extends StatelessWidget {
                     child: RichText(text: TextSpan(
                       children: [
                         const TextSpan(
-                          text: "Feels Like ",
+                          text: "Cảm giác như  ",
                           style: TextStyle(
                             fontSize: 14,
                             height: 0.8,
@@ -72,7 +72,7 @@ class ComfortLevel extends StatelessWidget {
                           )
                         ),
                         TextSpan(
-                            text: "${weatherDataCurrent.current.feelsLike}",
+                            text: "${weatherDataCurrent.current.feelsLike} °C",
                             style: const TextStyle(
                                 fontSize: 14,
                                 height: 0.8,
