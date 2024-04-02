@@ -25,36 +25,9 @@ class CurrentWeatherWidget extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(
-              padding: EdgeInsets.all(12),
-              height:60,
-              width: 60,
-              decoration: BoxDecoration(
-                color: CustomColor.cardColor,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Image.asset(AppAssets.icWind,),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              height:60,
-              width: 60,
-              decoration: BoxDecoration(
-                color: CustomColor.cardColor,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Image.asset(AppAssets.icCloud),
-            ),
-            Container(
-              padding: EdgeInsets.all(12),
-              height:60,
-              width: 60,
-              decoration: BoxDecoration(
-                color: CustomColor.cardColor,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Image.asset(AppAssets.icHumidity),
-            ),
+            Image.asset(AppAssets.icWind, height: 40, width: 40),
+            Image.asset(AppAssets.icCloud, height: 40, width: 40),
+            Image.asset(AppAssets.icHumidity, height: 40, width: 40,),
           ],
         ),
         SizedBox(height: 10,),
@@ -65,7 +38,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               height: 20,
               width: 70,
               child: Text("${weatherDataCurrent.current.windSpeed} km/h",
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 14, color: CustomColor.wColor),
                 textAlign: TextAlign.center,
 
               ),
@@ -74,8 +47,8 @@ class CurrentWeatherWidget extends StatelessWidget {
               height: 20,
               width: 60,
               child: Text(
-                "${weatherDataCurrent.current.clouds}%",
-                style: const TextStyle(fontSize: 12),
+                "${weatherDataCurrent.current.clouds} %",
+                style: const TextStyle(fontSize: 12, color: CustomColor.wColor),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -83,7 +56,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               height: 20,
               width: 60,
               child: Text("${weatherDataCurrent.current.humidity} %",
-                style: TextStyle(fontSize: 14),
+                style: const TextStyle(fontSize: 14, color: CustomColor.wColor),
                 textAlign: TextAlign.center,
 
               ),
@@ -95,39 +68,42 @@ class CurrentWeatherWidget extends StatelessWidget {
   }
 
   Widget tempeatureAreaWidget(){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Image.asset(
-          "assets/weather/${weatherDataCurrent.current.weather![0].icon}.png",
-          height: 80,
-          width: 80,
-        ),
-        // Image.asset(AppAssets.icCloud, height: 80, width: 80,),
-        Container(
-          height: 50,
-          width: 1,
-          color: CustomColor.dividerLine,
-        ),
-        RichText(
-            text: TextSpan(
-              children: [
-                TextSpan( text: "${weatherDataCurrent.current.temp!.toInt()}°",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 68,
-                        color: CustomColor.textColorBlack
-                    )),
-                TextSpan( text: "${weatherDataCurrent.current.weather![0].description}",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: CustomColor.textColorBlack
-                    )),
+    return Container(
+      margin: EdgeInsets.only(top: 50),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan( text: "${weatherDataCurrent.current.temp!.toInt()}°",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 68,
+                          color: CustomColor.wColor
+                      )),
+                  TextSpan( text: "${weatherDataCurrent.current.weather![0].description}",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18,
+                          color: CustomColor.wColor
+                      )),
 
-              ],
-        ))
-      ],
+                ],
+          )),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            height: 50,
+            width: 1,
+            color: CustomColor.dividerLine,
+          ),
+          Image.asset(
+            "assets/weather/${weatherDataCurrent.current.weather![0].icon}.png",
+            height: 80,
+            width: 80,
+          ),
+        ],
+      ),
     );
   }
 }

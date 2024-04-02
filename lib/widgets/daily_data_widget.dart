@@ -19,14 +19,14 @@ class DailyDataWidget extends StatelessWidget {
     return Container(
       height: 400,
       margin: const EdgeInsets.all(20),
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration:BoxDecoration(
-        gradient: const LinearGradient(
+        gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color(0xFF9e66ab), // Màu nhạt ở cuối
-            Color(0xFF5a189a), // Màu chính ở đầu
+            Color(0xFF9e66ab).withOpacity(0.3), // Màu nhạt ở cuối
+            Color(0xFF5a189a).withOpacity(0.7), // Màu chính ở đầu
           ],
         ),
         borderRadius: BorderRadius.circular(20),
@@ -35,9 +35,9 @@ class DailyDataWidget extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(bottom: 20),
+            margin: const EdgeInsets.only(bottom: 20),
             child: Text(
-              "Next Days",
+              "Dự báo ngày tới",
               style: TextStyle(color: CustomColor.wColor, fontSize: 17),
             ),
           ),
@@ -58,7 +58,7 @@ class DailyDataWidget extends StatelessWidget {
             children: [
               Container(
                 height: 60,
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [

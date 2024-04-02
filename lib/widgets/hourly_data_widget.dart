@@ -19,9 +19,15 @@ class HourlyDataWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          alignment: Alignment.topCenter,
-          margin: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-          child: Text("Today", style: TextStyle(fontSize: 18),),
+          alignment: Alignment.topLeft,
+          margin: EdgeInsets.only(top: 30, left: 20),
+          child: const Row(
+            children: [
+              Icon(Icons.access_time, size: 18,color: CustomColor.wColor,),
+              SizedBox(width: 5,),
+              Text("Dự báo 24h", style: TextStyle(fontSize: 18, color: CustomColor.wColor),),
+            ],
+          ),
         ),
         hourlyList(),
       ],
@@ -46,19 +52,11 @@ class HourlyDataWidget extends StatelessWidget {
                   margin: EdgeInsets.only(left: 15, right: 5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                            offset: const Offset(0.5,0),
-                            blurRadius: 30,
-                            spreadRadius: 1,
-                            color: CustomColor.dividerLine.withAlpha(150)
-                        )
-                      ],
-                      gradient: cardIndex.value == index
-                          ? const LinearGradient(colors: [
-                        CustomColor.fistGradientColor,
-                        CustomColor.secondGradientColor
-                      ]) : null),
+                      gradient: LinearGradient(
+                          colors: [
+                        CustomColor.greyColor.withOpacity(0.5),
+                        CustomColor.greyColor.withOpacity(0.8)
+                      ])),
                   child: HourlyDetails(
                     index: index,
                     cardIndex: cardIndex.toInt(),
@@ -105,7 +103,7 @@ class HourlyDetails extends StatelessWidget {
               style: TextStyle(
                 color: cardIndex == index
                     ? Colors.white
-                    : CustomColor.textColorBlack,
+                    : CustomColor.wColor,
               )),
         ),
         Container(
@@ -118,10 +116,8 @@ class HourlyDetails extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(bottom: 10),
           child: Text("$temp°",
-              style: TextStyle(
-                color: cardIndex == index
-                    ? Colors.white
-                    : CustomColor.textColorBlack,
+              style: const TextStyle(
+                color: Colors.white
               )),
         )
       ],

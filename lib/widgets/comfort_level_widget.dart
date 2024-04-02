@@ -13,9 +13,9 @@ class ComfortLevel extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.only(top: 1, left: 20, bottom: 20),
-          child: Text(
-            "Comfort Level",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          child: const Text(
+            "Cảm giác",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: CustomColor.wColor),
           ),
         ),
         SizedBox(
@@ -32,12 +32,14 @@ class ComfortLevel extends StatelessWidget {
                       handlerSize: 0, trackWidth: 12
                     ),
                     infoProperties: InfoProperties(
-                      bottomLabelText: "Humidity",
+                      mainLabelStyle: const TextStyle(color: CustomColor.wColor, fontSize: 30),
+                      bottomLabelText: "Độ ẩm",
                       bottomLabelStyle: const TextStyle(
                         fontSize: 15,
                         letterSpacing: 0.1,
                         height: 1.5,
-                        fontWeight: FontWeight.w400
+                        fontWeight: FontWeight.w400,
+                        color: CustomColor.wColor
                       )
                     ),
                     animationEnabled: true,
@@ -54,58 +56,60 @@ class ComfortLevel extends StatelessWidget {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  RichText(text: TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: "Feels Like ",
-                        style: TextStyle(
-                          fontSize: 14,
-                          height: 0.8,
-                          color: CustomColor.textColorBlack,
-                          fontWeight: FontWeight.w400
-                        )
-                      ),
-                      TextSpan(
-                          text: "${weatherDataCurrent.current.feelsLike}",
-                          style: const TextStyle(
-                              fontSize: 14,
-                              height: 0.8,
-                              color: CustomColor.textColorBlack,
-                              fontWeight: FontWeight.w400
-                          )
-                      ),
-                    ]
-                  )),
-                  Container(
-                    height: 25,
-                    margin: EdgeInsets.only(left: 40, right: 40),
-                    width: 1,
-                    color: CustomColor.dividerLine,
-                  ),
-                  RichText(text: TextSpan(
+                  SizedBox(
+                    width: 150,
+                    child: RichText(text: TextSpan(
                       children: [
                         const TextSpan(
-                            text: "UV ",
-                            style: TextStyle(
-                                fontSize: 14,
-                                height: 0.8,
-                                color: CustomColor.textColorBlack,
-                                fontWeight: FontWeight.w400
-                            )
+                          text: "Feels Like ",
+                          style: TextStyle(
+                            fontSize: 14,
+                            height: 0.8,
+                            color: CustomColor.wColor,
+                            fontWeight: FontWeight.w400
+                          )
                         ),
                         TextSpan(
-                            text: "${weatherDataCurrent.current.uvIndex}",
+                            text: "${weatherDataCurrent.current.feelsLike}",
                             style: const TextStyle(
                                 fontSize: 14,
                                 height: 0.8,
-                                color: CustomColor.textColorBlack,
+                                color: CustomColor.wColor,
                                 fontWeight: FontWeight.w400
                             )
                         ),
                       ]
-                  )),
+                    )),
+                  ),
+                  SizedBox(
+                    width: 150,
+                    child: Center(
+                      child: RichText(text: TextSpan(
+                          children: [
+                            const TextSpan(
+                                text: "UV ",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    height: 0.8,
+                                    color: CustomColor.wColor,
+                                    fontWeight: FontWeight.w400
+                                )
+                            ),
+                            TextSpan(
+                                text: "${weatherDataCurrent.current.uvIndex}",
+                                style: const TextStyle(
+                                    fontSize: 14,
+                                    height: 0.8,
+                                    color: CustomColor.wColor,
+                                    fontWeight: FontWeight.w400
+                                )
+                            ),
+                          ]
+                      )),
+                    ),
+                  ),
               ]
                 ,)
             ],

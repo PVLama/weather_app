@@ -42,11 +42,11 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           alignment: Alignment.topLeft,
           child: Column(
             children: [
-              const Text("Weather Today",  style: TextStyle(
+              const Text("Hà Nội",  style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.8,
-                color: CustomColor.textColorBlack
+                color: CustomColor.wColor
               ),),
               Text(
                 date,

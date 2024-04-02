@@ -21,38 +21,43 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalController globalController = Get.put(GlobalController(), permanent: true);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Obx(() => globalController.checkLoading().isTrue?
+    return Stack(
+      children: [
+        Image.asset(AppAssets.imageBackGrd),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child: Obx(() => globalController.checkLoading().isTrue?
           Center(
             child: Image.asset(AppAssets.icCloudAnimate,
-                height: 200,
-                width: 200,
+              height: 200,
+              width: 200,
             ),
-         ) : Center(
-           child: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-
-              const SizedBox(height: 20,),
-              const HeaderWidget(),
-              CurrentWeatherWidget(
-                weatherDataCurrent: globalController.getData().getCurrentWeather(),
-              ),
-              HourlyDataWidget(weatherDataHourly: globalController.getData().getHourlyWeather()),
-              DailyDataWidget(
-                weatherDataDaily: globalController.getData().getDailyWeather(),
-              ),
-              Container(
-                height: 1,
-                color: CustomColor.dividerLine,
-              ),
-              const SizedBox(height: 10,),
-              ComfortLevel(weatherDataCurrent: globalController.getData().getCurrentWeather()),
-            ]
-           ),
-         )),
+          ) : Center(
+            child: ListView(
+                scrollDirection: Axis.vertical,
+                children: [
+                  const SizedBox(height: 20,),
+                  const HeaderWidget(),
+                  CurrentWeatherWidget(
+                    weatherDataCurrent: globalController.getData().getCurrentWeather(),
+                  ),
+                  HourlyDataWidget(weatherDataHourly: globalController.getData().getHourlyWeather()),
+                  DailyDataWidget(
+                    weatherDataDaily: globalController.getData().getDailyWeather(),
+                  ),
+                  Container(
+                    height: 1,
+                    color: CustomColor.dividerLine,
+                  ),
+                  const SizedBox(height: 10,),
+                  ComfortLevel(weatherDataCurrent: globalController.getData().getCurrentWeather()),
+                ]
+            ),
+          )),
+        ),
       ),
+      ]
     );
   }
 }
