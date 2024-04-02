@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+- Use API OpenWeather.
+- Use Statement GetX
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
