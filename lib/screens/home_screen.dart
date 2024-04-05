@@ -29,9 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
           body: SafeArea(
             child: Obx(() => globalController.checkLoading().isTrue?
             Center(
-              child: Image.asset(AppAssets.icCloudAnimate,
-              height: 200,
-              width: 200,
+              child: Image.asset(AppAssets.imageBackGrd1,
+              height: 150,
+              width: 150,
+                fit: BoxFit.cover,
               ),
             ) : Center(
               child: ListView(
