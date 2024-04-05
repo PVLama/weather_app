@@ -30,8 +30,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     List<Placemark> placeMark = await placemarkFromCoordinates(lat, lon);
     Placemark place = placeMark[0];
     setState(() {
-      city = place.locality!;
+      city = place.subLocality!;
     });
+    print(placeMark);
   }
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           alignment: Alignment.topLeft,
           child: Column(
             children: [
-              const Text("Hà Nội",  style: TextStyle(
+              Text("Hà Nội",  style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.8,

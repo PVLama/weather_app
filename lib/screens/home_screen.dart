@@ -26,19 +26,19 @@ class _HomeScreenState extends State<HomeScreen> {
         Image.asset(AppAssets.imageBackGrd),
         Scaffold(
           backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Obx(() => globalController.checkLoading().isTrue?
-          Center(
-            child: Image.asset(AppAssets.icCloudAnimate,
+          body: SafeArea(
+            child: Obx(() => globalController.checkLoading().isTrue?
+            Center(
+              child: Image.asset(AppAssets.icCloudAnimate,
               height: 200,
               width: 200,
-            ),
-          ) : Center(
-            child: ListView(
+              ),
+            ) : Center(
+              child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
                   const SizedBox(height: 20,),
-                  const HeaderWidget(),
+                   HeaderWidget(),
                   CurrentWeatherWidget(
                     weatherDataCurrent: globalController.getData().getCurrentWeather(),
                   ),
