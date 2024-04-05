@@ -1,5 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/consts/app_assets.dart';
 import 'package:weather_app/controllers/global_controller.dart';
@@ -23,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(AppAssets.imageBackGrd),
+        Positioned.fill(child: Image.asset(AppAssets.imageBackGrd, fit: BoxFit.fill,)),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: SafeArea(
