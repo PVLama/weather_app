@@ -3,7 +3,7 @@
 A new Flutter project.
 
 - Use API OpenWeather.
-- Use Statement GetX
+- Use State management library GetX
 
 
 ## Getting Started
